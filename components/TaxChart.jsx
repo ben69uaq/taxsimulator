@@ -13,7 +13,7 @@ class TaxChart extends React.Component {
 
     render() {
         return (
-            <div class="taxchart">
+            <div className="taxchart">
                 <h2>impot en fonction des
                     <select value={this.state.selected} onChange={this.handleChange}>
                         <option value="enfants">enfants</option>
@@ -22,7 +22,7 @@ class TaxChart extends React.Component {
                         <option value="reductions">réductions</option>
                     </select>
                 </h2>
-                <div class="chart">
+                <div className="chart">
                     <canvas id="deductionchart"></canvas>
                 </div>
             </div>

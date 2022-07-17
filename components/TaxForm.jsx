@@ -22,7 +22,7 @@ class TaxForm extends React.Component {
 
   render() {
     return (
-      <div class="taxform">
+      <div className="taxform">
         <form onSubmit={this.handleSubmit} >
           <label>nombre d'enfants à charge <input type="text" name="enfants" defaultValue={this.props.taxnotice.enfants} /></label><br />
           <label>revenus du foyer <input type="text" name="revenus" defaultValue={this.props.taxnotice.revenus} /></label><br />
