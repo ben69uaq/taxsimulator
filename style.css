@@ -1,0 +1,122 @@
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 4vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#topline {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height:50%;
+}
+#bottomline {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height:50%;
+    text-align: center;
+}
+h1 {
+    margin: 0;
+    padding: 0;
+    height: 20%;
+    width: 100%;
+    font-size: 7vh;
+    text-align: center;
+    font-weight: normal;
+}
+h2 {
+    margin: 0;
+    padding: 0;
+    height: 10%;
+    width: 100%;
+    font-size: 3vh;
+    text-align: center;
+    font-weight: normal;
+}
+#leftcolumn {
+    float: left;
+    width: 50%;
+    height: 80%;
+    text-align: right;
+}
+#rightcolumn {
+    float: left;
+    width: 50%;
+    height: 80%;
+}
+.taxform {
+    margin-top: 30px;
+    padding-right: 50px;
+    border-right: 1px solid;
+}
+.taxdetails {
+    margin-top: 30px;
+    padding-left: 50px;
+}
+.taxchart {
+    width: 100%;
+    height: 100%;
+}
+.chart {
+    padding: 0 20px;
+    height: 90%;
+}
+.amount {
+    margin-right: 10px;
+}
+.hidden {
+    color: grey;
+    text-decoration: line-through;
+}
+.highlight {
+    color: rgb(75, 192, 192);
+}
+abbr {
+    color: grey;
+    padding: 0 4px;
+    margin: 0 4px;
+    border-radius: 8px;
+    border: 1px solid;
+    text-decoration: none;
+    font-size: 10px;
+    cursor: help;
+}
+input {
+    border: none;
+    padding: 0;
+    font-size: 1em;
+    background: none;
+    background: none;
+    text-align: right;;
+}
+input[type=text] {
+    width: 15%;
+    margin-left: 10px;
+}
+input[type=text]:focus {
+    outline: none;
+    color: white;
+    background-color: rgb(75, 192, 192);
+}
+input[type=submit] {
+    cursor: pointer;
+    color: rgb(75, 192, 192);
+}
+input[type=submit]:focus {
+    outline: none;
+}
+select {
+    margin: 0 0 0 3px;
+    font-weight: bold;;
+    font-size: 3vh;
+    border: none;
+    cursor: pointer;
+    color: rgb(75, 192, 192);
+}
+select:focus {
+    outline: none;
+}

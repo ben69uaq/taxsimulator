@@ -1,0 +1,61 @@
+class TaxCalculator {
+
+    static tranche1 = 10226;
+    static tranche2 = 26071;
+    static tranche3 = 74546;
+    static tranche4 = 160336;
+    static maximumDecote = 2848;
+
+    static calculate (taxnotice) {
+        let impotSansPlafond = TaxCalculatorWithCap.calculate(taxnotice);
+        let impotAvecPlafond = TaxCalculatorWithoutCap.calculate(taxnotice);
+        let impotSansDecote = impotSansPlafond > impotAvecPlafond ? impotSansPlafond : impotAvecPlafond;
+        let decote = this.calculateDecote(impotSansDecote);
+        let impotAvecDecote = impotSansDecote > decote ? impotSansDecote - decote : 0;
+        let reduction = taxnotice.reductions * 0.66;
+        let impotFinal = impotAvecDecote > reduction ? impotAvecDecote - reduction : 0;
+        return new TaxAmount(impotSansPlafond, impotAvecPlafond, impotSansDecote, impotAvecDecote, impotFinal);
+    }
+
+    static getParts(enfants) {
+        if (enfants == 0) {
+            return 2;
+        }
+        if (enfants == 1) {
+            return 2.5;
+        }
+        return 2 + enfants -1;
+    }
+
+    static calculateRevenuNet(revenus, deduction) {
+        return revenus * 0.9 - deduction;
+    }
+
+    static calculateImpotQuotient(quotient) {
+        let impot = 0;
+        if (quotient < this.tranche1) {
+            return impot;
+        }
+        if (quotient < this.tranche2) {
+            return 0.11 * (quotient - this.tranche1);
+        }
+        impot += 0.11 * (this.tranche2 - this.tranche1);
+        if (quotient < this.tranche3) {
+            return impot + 0.30 * (quotient - this.tranche2);
+        }
+        impot += 0.30 * (this.tranche3 - this.tranche2);
+        if (quotient < this.tranche4) {
+            return impot + 0.41 * (quotient - this.tranche3);
+        }
+        impot += 0.41 * (this.tranche4 - this.tranche3);
+        return impot + 0.45 * (quotient - this.tranche4);
+    }
+
+    static calculateDecote(impot) {
+        if(impot < this.maximumDecote) {
+            return 1307 - impot * 0.4525;
+        }
+        return 0;
+    }
+
+}
