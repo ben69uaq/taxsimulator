@@ -2,8 +2,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.handleTaxChange = this.handleTaxChange.bind(this);
-    this.state = {
-      taxnotice: new TaxNotice(3, 84867, 0, 0), // default values
+    this.handleChartChange = this.handleChartChange.bind(this);
+    this.state = { // default values
+      taxnotice: new TaxNotice(3, 84867, 0, 0),
+      selected: "revenus"
     };
   }
 
@@ -11,11 +13,15 @@ class App extends React.Component {
     this.setState({ taxnotice: newTaxnotice });
   }
 
+  handleChartChange(e) {
+    this.setState({ selected: e.target.value });
+}
+
   render() {
     return (
-      <div>
+      <div id="container">
+        <h1>impot pour un couple</h1>
         <div id="topline">
-          <h1>simulateur pour un couple</h1>
           <div id="leftcolumn">
             <TaxForm taxnotice={this.state.taxnotice} onTaxChange={this.handleTaxChange}></TaxForm>
           </div>
@@ -23,8 +29,16 @@ class App extends React.Component {
             <TaxDetails taxnotice={this.state.taxnotice}></TaxDetails>
           </div>
         </div>
+        <h2>impot en fonction des
+                    <select value={this.state.selected} onChange={this.handleChartChange}>
+                        <option value="enfants">enfants</option>
+                        <option value="revenus">revenus</option>
+                        <option value="deductions">déductions</option>
+                        <option value="reductions">réductions</option>
+                    </select>
+                </h2>
         <div id="bottomline">
-          <TaxChart taxnotice={this.state.taxnotice} selected="revenus"></TaxChart>
+          <TaxChart taxnotice={this.state.taxnotice} selected={this.state.selected}></TaxChart>
         </div>
       </div>
     );

@@ -1,72 +1,50 @@
-html, body, #root {
+html, body, #root, #container, h1, h2 {
     margin: 0;
     padding: 0;
-    height: 100%;
     width: 100%;
-    font-size: 4vh;
+    height: 100%;
+    text-align: center;
+    font-weight: normal;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-#topline {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height:50%;
-}
-#bottomline {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height:50%;
-    text-align: center;
+#container {
+    display: flex;
+    flex-direction: column;
 }
 h1 {
-    margin: 0;
-    padding: 0;
-    height: 20%;
-    width: 100%;
-    font-size: 7vh;
-    text-align: center;
-    font-weight: normal;
+    flex: 0 1 auto;
+    height: 80px;
+    font-size: 3em;
 }
-h2 {
-    margin: 0;
-    padding: 0;
-    height: 10%;
-    width: 100%;
-    font-size: 3vh;
+#topline {
+    flex: 0 1 auto;
     text-align: center;
-    font-weight: normal;
+}
+#leftcolumn, #rightcolumn {
+    display: inline-block;
+    width: 300px;
+    padding: 0 30px;
+    margin: 30px 0;
 }
 #leftcolumn {
-    float: left;
-    width: 50%;
-    height: 80%;
     text-align: right;
+    border-right: 1px  rgb(75, 192, 192) solid;
 }
 #rightcolumn {
-    float: left;
-    width: 50%;
-    height: 80%;
+    text-align: left;
+    border-left: 1px  rgb(75, 192, 192) solid;
 }
-.taxform {
-    margin-top: 30px;
-    padding-right: 50px;
-    border-right: 1px solid;
+h2 {
+    flex: 0 1 auto;
+    height: 50px;
+    font-size: 1.8em;
 }
-.taxdetails {
-    margin-top: 30px;
-    padding-left: 50px;
-}
-.taxchart {
-    width: 100%;
-    height: 100%;
-}
-.chart {
-    padding: 0 20px;
-    height: 90%;
+#bottomline {
+    flex: 1 1 auto;
+    margin: 0 15px 15px 15px;
 }
 .amount {
-    margin-right: 10px;
+    margin-right: 20px;
 }
 .hidden {
     color: grey;
@@ -94,29 +72,25 @@ input {
     text-align: right;;
 }
 input[type=text] {
-    width: 15%;
+    outline: none !important;
     margin-left: 10px;
+    width: 65px;
 }
 input[type=text]:focus {
-    outline: none;
     color: white;
     background-color: rgb(75, 192, 192);
 }
 input[type=submit] {
+    outline: none !important;
     cursor: pointer;
+    margin-right: 80px;
     color: rgb(75, 192, 192);
-}
-input[type=submit]:focus {
-    outline: none;
 }
 select {
-    margin: 0 0 0 3px;
-    font-weight: bold;;
-    font-size: 3vh;
+    outline: none !important;
     border: none;
     cursor: pointer;
+    margin: 0 0 0 3px;
+    font-size: 1em;
     color: rgb(75, 192, 192);
-}
-select:focus {
-    outline: none;
 }

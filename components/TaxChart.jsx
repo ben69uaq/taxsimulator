@@ -1,36 +1,15 @@
 class TaxChart extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.state = {
-            selected: this.props.selected
-        };
-    }
-
-    handleChange(e) {
-        this.setState({selected:e.target.value});
-      }
 
     render() {
         return (
-            <div className="taxchart">
-                <h2>impot en fonction des
-                    <select value={this.state.selected} onChange={this.handleChange}>
-                        <option value="enfants">enfants</option>
-                        <option value="revenus">revenus</option>
-                        <option value="deductions">déductions</option>
-                        <option value="reductions">réductions</option>
-                    </select>
-                </h2>
-                <div className="chart">
-                    <canvas id="deductionchart"></canvas>
-                </div>
+            <div className="taxchart" style={{"height" : "100%", "width" : "100%"}}>
+                <canvas id="deductionchart"></canvas>
             </div>
         );
     }
 
     componentDidMount() {
-        let arrayRange = this.getRange(this.props.taxnotice[this.state.selected]);
+        let arrayRange = this.getRange(this.props.taxnotice[this.props.selected]);
         let arrayImpot = this.getImpot(this.props.taxnotice, arrayRange);
         this.chart = new Chart(document.getElementById('deductionchart'), {
             type: 'line',
@@ -56,7 +35,7 @@ class TaxChart extends React.Component {
     }
 
     componentDidUpdate() {
-        let arrayDeductions = this.getRange(this.props.taxnotice[this.state.selected]);
+        let arrayDeductions = this.getRange(this.props.taxnotice[this.props.selected]);
         let arrayImpot = this.getImpot(this.props.taxnotice, arrayDeductions);
         this.chart.data.labels = arrayDeductions;
         this.chart.data.datasets[0].data = arrayImpot;
@@ -73,10 +52,10 @@ class TaxChart extends React.Component {
     getImpot(taxnotice, rangeDeductions) {
         return rangeDeductions
             .map(d => new TaxNotice(
-                this.state.selected == "enfants" ? d : taxnotice.enfants,
-                this.state.selected == "revenus" ? d : taxnotice.revenus,
-                this.state.selected == "deductions" ? d : taxnotice.deductions,
-                this.state.selected == "reductions" ? d : taxnotice.reductions))
+                this.props.selected == "enfants" ? d : taxnotice.enfants,
+                this.props.selected == "revenus" ? d : taxnotice.revenus,
+                this.props.selected == "deductions" ? d : taxnotice.deductions,
+                this.props.selected == "reductions" ? d : taxnotice.reductions))
             .map(n => TaxCalculator.calculate(n))
             .map(a => a.impotFinal);
     }
