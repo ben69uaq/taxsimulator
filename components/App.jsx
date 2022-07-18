@@ -4,7 +4,7 @@ class App extends React.Component {
     this.handleTaxChange = this.handleTaxChange.bind(this);
     this.handleChartChange = this.handleChartChange.bind(this);
     this.state = { // default values
-      taxnotice: new TaxNotice(3, 84867, 2000, 1000),
+      taxnotice: new TaxNotice(3, 100000, 2000, 1000),
       selected: "revenus"
     };
   }
