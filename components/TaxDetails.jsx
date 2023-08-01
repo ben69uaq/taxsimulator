@@ -5,10 +5,10 @@ class TaxDetails extends React.Component {
     return (
       <div className="taxdetails">
         <div>
-          <span className={this.isImpotPlafond(taxamount) ? 'amount' : 'amount hidden'}>{taxamount.impotSansPlafond}€</span> impot sans plafonnement
+          <span className={this.isImpotPlafond(taxamount) ? 'amount hidden' : 'amount'}>{taxamount.impotSansPlafond}€</span> impot sans plafonnement
         </div>
         <div>
-          <span className={this.isImpotPlafond(taxamount) ? 'amount hidden' : 'amount'}>{taxamount.impotAvecPlafond}€</span> impot avec plafonnement <abbr title="plafonnement des effets de l'avantage procuré par du quotient famillial">?</abbr>
+          <span className={this.isImpotPlafond(taxamount) ? 'amount' : 'amount hidden'}>{taxamount.impotAvecPlafond}€</span> impot avec plafonnement <abbr title="plafonnement des effets de l'avantage procuré par du quotient famillial">?</abbr>
         </div>
         <div>
           <span className="amount">{taxamount.impotSansDecote}€</span> impot sans la décote
