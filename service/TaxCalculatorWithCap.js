@@ -1,5 +1,5 @@
 class TaxCalculatorWithCap extends TaxCalculator{
-    static plafond = 1592;
+    static plafond = 1678;
 
     static calculate(taxnotice) {
         let part = super.getParts(taxnotice.enfants);
