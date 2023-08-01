@@ -14,7 +14,7 @@ class TaxDetails extends React.Component {
           <span className="amount">{taxamount.impotSansDecote}€</span> impot sans la décote
         </div>
         <div>
-          <span className={this.isImpotDecote(taxamount) ? 'amount' : 'amount hidden'}>{taxamount.impotAvecDecote}€</span> impot avec la décote <abbr title="décote applicable lorsque l'impot est inférieur à 2 848€ en 2021">?</abbr>
+          <span className={this.isImpotDecote(taxamount) ? 'amount' : 'amount hidden'}>{taxamount.impotAvecDecote}€</span> impot avec la décote <abbr title="décote applicable lorsque l'impot est inférieur à 3 045€ en 2023">?</abbr>
         </div>
         <div>
           <span className="amount highlight">{taxamount.impotFinal}€</span> impot final
