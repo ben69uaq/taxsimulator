@@ -1,9 +1,9 @@
 class TaxCalculator {
 
-    static tranche1 = 11295;
-    static tranche2 = 28797;
-    static tranche3 = 82341;
-    static tranche4 = 177106;
+    static tranche1 = 11294;
+    static tranche2 = 28796;
+    static tranche3 = 82340;
+    static tranche4 = 177105;
     static maximumDecote = 3191;
 
     static calculate (taxnotice) {
@@ -11,7 +11,7 @@ class TaxCalculator {
         let impotAvecPlafond = TaxCalculatorWithoutCap.calculate(taxnotice);
         let impotSansDecote = impotSansPlafond > impotAvecPlafond ? impotSansPlafond : impotAvecPlafond;
         let decote = this.calculateDecote(impotSansDecote);
-        let impotAvecDecote = impotSansDecote > decote ? impotSansDecote - decote : 0;
+        let impotAvecDecote = impotSansDecote - decote;
         let reduction = taxnotice.reductions * 0.66;
         let impotFinal = impotAvecDecote > reduction ? impotAvecDecote - reduction : 0;
         return new TaxAmount(impotSansPlafond, impotAvecPlafond, impotSansDecote, impotAvecDecote, impotFinal);
@@ -53,7 +53,7 @@ class TaxCalculator {
 
     static calculateDecote(impot) {
         if(impot < this.maximumDecote) {
-            return 1307 - impot * 0.4525;
+            return 1444 - impot * 0.4525;
         }
         return 0;
     }
