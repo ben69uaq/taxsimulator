@@ -7,8 +7,8 @@ class TaxCalculator {
     static maximumDecote = 3191;
 
     static calculate (taxnotice) {
-        let impotSansPlafond = TaxCalculatorWithCap.calculate(taxnotice);
-        let impotAvecPlafond = TaxCalculatorWithoutCap.calculate(taxnotice);
+        let impotSansPlafond = TaxCalculatorWithoutCap.calculate(taxnotice);
+        let impotAvecPlafond = TaxCalculatorWithCap.calculate(taxnotice);
         let impotSansDecote = impotSansPlafond > impotAvecPlafond ? impotSansPlafond : impotAvecPlafond;
         let decote = this.calculateDecote(impotSansDecote);
         let impotAvecDecote = impotSansDecote - decote;
