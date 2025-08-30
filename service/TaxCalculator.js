@@ -1,9 +1,9 @@
 class TaxCalculator {
 
-    static tranche1 = 11294;
-    static tranche2 = 28796;
-    static tranche3 = 82340;
-    static tranche4 = 177105;
+    static tranche1 = 11498;
+    static tranche2 = 29316;
+    static tranche3 = 83824;
+    static tranche4 = 180294;
     static maximumDecote = 3191;
 
     static calculate (taxnotice) {
@@ -59,3 +59,4 @@ class TaxCalculator {
     }
 
 }
+
