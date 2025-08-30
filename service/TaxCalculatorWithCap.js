@@ -1,5 +1,5 @@
 class TaxCalculatorWithCap extends TaxCalculator{
-    static plafond = 1759;
+    static plafond = 1791;
 
     static calculate(taxnotice) {
         let part = super.getParts(taxnotice.enfants);
@@ -14,3 +14,4 @@ class TaxCalculatorWithCap extends TaxCalculator{
         return impot > 0 ? impot : 0;
     }
 }
+
