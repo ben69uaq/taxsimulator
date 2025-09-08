@@ -4,7 +4,7 @@ class TaxCalculator {
     static tranche2 = 29316;
     static tranche3 = 83824;
     static tranche4 = 180294;
-    static maximumDecote = 3191;
+    static maximumDecote = 1470;
 
     static calculate (taxnotice) {
         let impotSansPlafond = TaxCalculatorWithoutCap.calculate(taxnotice);
@@ -59,4 +59,5 @@ class TaxCalculator {
     }
 
 }
+
 
